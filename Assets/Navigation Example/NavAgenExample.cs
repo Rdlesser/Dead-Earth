@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 
 // ----------------------------------------------------------
@@ -88,6 +89,12 @@ public class NavAgenExample : MonoBehaviour
         PathStale = _navAgent.isPathStale;
         PathStatus = _navAgent.pathStatus;
 
+        if (_navAgent.isOnOffMeshLink)
+        {
+            StartCoroutine(Jump(20.0f));
+            return;
+        }
+        
         // If we don't have a path and one isn't pending then set the next
         // waypoint as the target, otherwise if path is stale regenerate path
         if ((!HasPath && !PathPending) || PathStatus == NavMeshPathStatus.PathInvalid)
@@ -98,5 +105,22 @@ public class NavAgenExample : MonoBehaviour
         {
             SetnextDestination(false);
         }
+    }
+
+    IEnumerator Jump(float duration)
+    {
+        OffMeshLinkData data = _navAgent.currentOffMeshLinkData;
+        Vector3 startPos = _navAgent.transform.position;
+        Vector3 endPos = data.endPos + _navAgent.baseOffset * Vector3.up;
+        float time = 0;
+
+        while (time <= duration)
+        {
+            float t = time / duration;
+            _navAgent.transform.position = Vector3.Lerp(startPos, endPos, t);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        _navAgent.CompleteOffMeshLink();
     }
 }
