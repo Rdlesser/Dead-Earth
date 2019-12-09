@@ -57,9 +57,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Dead Earth\Scripts\AIWaypointNetwork.cs" />
-     <Compile Include="Assets\Dead Earth\Scripts\Controller.cs" />
      <Compile Include="Assets\Dead Earth\Scripts\SmoothCameramMount.cs" />
-     <Compile Include="Assets\Dead Earth\Scripts\SpeedController.cs" />
      <Compile Include="Assets\Navigation Example\NavAgenExample.cs" />
      <Compile Include="Assets\Navigation Example\SlidingDoorDemo.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
@@ -77,8 +75,6 @@
      <Compile Include="Assets\Scripts\Managers\UI.cs" />
      <Compile Include="Assets\Scripts\Utils\ColliderSnap.cs" />
      <Compile Include="Assets\Scripts\Utils\ScreenUtil.cs" />
-     <None Include="Assets\MCO_Demo_Pack\READ ME!!\READ ME! - Rifle Attaches to RightHandMiddle1 Finger.txt" />
-     <None Include="Assets\MCO_Demo_Pack\READ ME!!\Demo_Scene_Animation_README.txt" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/robert/Code/Dead Earth/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
