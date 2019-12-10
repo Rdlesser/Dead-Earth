@@ -59,6 +59,7 @@
      <Compile Include="Assets\Dead Earth\Scripts\AIWaypointNetwork.cs" />
      <Compile Include="Assets\Dead Earth\Scripts\SmoothCameramMount.cs" />
      <Compile Include="Assets\Navigation Example\NavAgenExample.cs" />
+     <Compile Include="Assets\Navigation Example\NavAgenNoRootMotion.cs" />
      <Compile Include="Assets\Navigation Example\SlidingDoorDemo.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
