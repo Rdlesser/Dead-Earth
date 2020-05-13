@@ -12,12 +12,12 @@ public enum DoorState
 public class SlidingDoorDemo : MonoBehaviour
 {
     // Public members
-    public float SlidingDistance = 4f;
-    public float Duration = 1.5f;
-    public AnimationCurve JumpCurve = new AnimationCurve();
+    public float slidingDistance = 4f;
+    public float duration = 1.5f;
+    public AnimationCurve jumpCurve = new AnimationCurve();
     
     // Private members
-    private Transform _transform = null;
+    private Transform _transform;
     private Vector3 _openPos = Vector3.zero;
     private Vector3 _closedPos = Vector3.zero;
     private DoorState _doorState = DoorState.Closed;
@@ -27,7 +27,7 @@ public class SlidingDoorDemo : MonoBehaviour
     {
         _transform = transform;
         _closedPos = _transform.position;
-        _openPos = _closedPos + _transform.right * SlidingDistance;
+        _openPos = _closedPos + _transform.right * slidingDistance;
     }
 
     // Update is called once per frame
@@ -46,10 +46,10 @@ public class SlidingDoorDemo : MonoBehaviour
         Vector3 startPos = newState == DoorState.Open ? _closedPos : _openPos;
         Vector3 endPos = newState == DoorState.Open ? _openPos : _closedPos;
 
-        while (time <= Duration)
+        while (time <= duration)
         {
-            float t = time / Duration;
-            _transform.position = Vector3.Lerp(startPos, endPos, JumpCurve.Evaluate(t));
+            float t = time / duration;
+            _transform.position = Vector3.Lerp(startPos, endPos, jumpCurve.Evaluate(t));
             time += Time.deltaTime;
             yield return null;
         }

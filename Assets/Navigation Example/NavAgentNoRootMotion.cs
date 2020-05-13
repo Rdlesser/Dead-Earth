@@ -11,19 +11,22 @@ using UnityEngine.AI;
 public class NavAgentNoRootMotion : MonoBehaviour
 {
     // Inspector Assigned Variable
-    public AIWaypointNetwork WaypointNetwork = null;
-    public int CurrentIndex = 2;
-    public bool HasPath = false;
-    public bool PathPending = false;
-    public bool PathStale = false;
-    public NavMeshPathStatus PathStatus = NavMeshPathStatus.PathInvalid;
+    public AIWaypointNetwork waypointNetwork;
+    public int currentIndex = 2;
+    public bool hasPath;
+    public bool pathPending;
+    public bool pathStale;
+    public NavMeshPathStatus pathStatus = NavMeshPathStatus.PathInvalid;
 
     // Private Members
-    private NavMeshAgent _navAgent = null;
-    private Animator _animator = null;
-    private float _originalMaxSpeed = 0f;
+    private NavMeshAgent _navAgent;
+    private Animator _animator;
+    private float _originalMaxSpeed;
+    private static readonly int Horizontal = Animator.StringToHash("Horizontal");
+    private static readonly int Vertical = Animator.StringToHash("Vertical");
+    private static readonly int TurnOnSpot = Animator.StringToHash("TurnOnSpot");
 
-    
+
     // -----------------------------------------------------
     // Name :	Start
     // Desc	:	Cache MavMeshAgent and set initial 
@@ -45,7 +48,7 @@ public class NavAgentNoRootMotion : MonoBehaviour
         _navAgent.updateRotation = false;*/
 
         // If not valid Waypoint Network has been assigned then return
-        if (WaypointNetwork == null)
+        if (waypointNetwork == null)
         {
             return;
         }
@@ -61,7 +64,7 @@ public class NavAgentNoRootMotion : MonoBehaviour
     void SetnextDestination(bool increment)
     {
         // If no network return
-        if (!WaypointNetwork)
+        if (!waypointNetwork)
         {
             return;
         }
@@ -70,20 +73,20 @@ public class NavAgentNoRootMotion : MonoBehaviour
         int incStep = increment ? 1 : 0;
         
         // Calculate index of next waypoint factoring in the increment with wrap-around and fetch waypoint
-        int nextWaypoint = (CurrentIndex+incStep>=WaypointNetwork.Waypoints.Count)?0:CurrentIndex+incStep;
-        Transform nextWaypointTransform =  WaypointNetwork.Waypoints[nextWaypoint];
+        int nextWaypoint = (currentIndex+incStep>=waypointNetwork.waypoints.Count)?0:currentIndex+incStep;
+        Transform nextWaypointTransform =  waypointNetwork.waypoints[nextWaypoint];
 
         if (nextWaypointTransform != null)
         {
             // Update the current waypoint index, assign its position as the NavMeshAgents
             // Destination and then return
-            CurrentIndex = nextWaypoint;
+            currentIndex = nextWaypoint;
             _navAgent.destination = nextWaypointTransform.position;
             return;
         }
 
         // We did not find a valid waypoint in the list for this iteration
-        CurrentIndex++;
+        currentIndex++;
     }
 
     // ---------------------------------------------------------
@@ -95,10 +98,10 @@ public class NavAgentNoRootMotion : MonoBehaviour
         int turnOnSpot;
         
         // Copy NavMeshAgents state into inspector visible variables
-        HasPath = _navAgent.hasPath;
-        PathPending = _navAgent.pathPending;
-        PathStale = _navAgent.isPathStale;
-        PathStatus = _navAgent.pathStatus;
+        hasPath = _navAgent.hasPath;
+        pathPending = _navAgent.pathPending;
+        pathStale = _navAgent.isPathStale;
+        pathStatus = _navAgent.pathStatus;
 
         // If agent is on an off mesh link
         // if (_navAgent.isOnOffMeshLink)
@@ -107,10 +110,11 @@ public class NavAgentNoRootMotion : MonoBehaviour
         //     return;
         // }
 
-        Vector3 cross = Vector3.Cross(transform.forward, _navAgent.desiredVelocity.normalized);
+        var forward = transform.forward;
+        Vector3 cross = Vector3.Cross(forward, _navAgent.desiredVelocity.normalized);
         float horizontal = cross.y < 0 ? -cross.magnitude : cross.magnitude;
         horizontal = Mathf.Clamp(horizontal * 2.32f, -2.32f, 2.32f);
-        float angle = Vector3.Angle(_navAgent.desiredVelocity, transform.forward);
+        float angle = Vector3.Angle(_navAgent.desiredVelocity, forward);
         if (_navAgent.desiredVelocity.magnitude < 1.0f &&
             (angle > 10 || angle < 1))
         {
@@ -125,17 +129,17 @@ public class NavAgentNoRootMotion : MonoBehaviour
             turnOnSpot = 0;
         }
         
-        _animator.SetFloat("Horizontal", horizontal, 0.1f, Time.deltaTime);
-        _animator.SetFloat("Vertical", _navAgent.desiredVelocity.magnitude, 0.1f, Time.deltaTime);
-        _animator.SetInteger("TurnOnSpot", turnOnSpot);
+        _animator.SetFloat(Horizontal, horizontal, 0.1f, Time.deltaTime);
+        _animator.SetFloat(Vertical, _navAgent.desiredVelocity.magnitude, 0.1f, Time.deltaTime);
+        _animator.SetInteger(TurnOnSpot, turnOnSpot);
         
         // If we don't have a path and one isn't pending then set the next
         // waypoint as the target, otherwise if path is stale regenerate path
-        if ((!HasPath && !PathPending) || PathStatus == NavMeshPathStatus.PathInvalid)
+        if ((!hasPath && !pathPending) || pathStatus == NavMeshPathStatus.PathInvalid)
         {
             SetnextDestination(true);
         }
-        else if (PathStale)
+        else if (pathStale)
         {
             SetnextDestination(false);
         }

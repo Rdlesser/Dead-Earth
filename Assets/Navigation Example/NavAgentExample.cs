@@ -6,21 +6,23 @@ using UnityEngine.AI;
 // CLASS	:	NavAgentExample
 // DESC		:	Behaviour to test Unity's NavMeshAgent
 // ----------------------------------------------------------
+
 [RequireComponent(typeof(NavMeshAgent))]
 public class NavAgentExample : MonoBehaviour
 {
     // Inspector Assigned Variable
-    public AIWaypointNetwork WaypointNetwork = null;
-    public int CurrentIndex = 2;
-    public bool HasPath = false;
-    public bool PathPending = false;
-    public bool PathStale = false;
-    public NavMeshPathStatus PathStatus = NavMeshPathStatus.PathInvalid;
+    public AIWaypointNetwork waypointNetwork;
+    public int currentIndex;
+    public bool hasPath;
+    public bool pathPending;
+    public bool pathStale;
+    public NavMeshPathStatus pathStatus = NavMeshPathStatus.PathInvalid;
+    public AnimationCurve	 JumpCurve		 = new AnimationCurve();
 
     // Private Members
-    private NavMeshAgent _navAgent = null;
+    private NavMeshAgent _navAgent;
 
-    
+
     // -----------------------------------------------------
     // Name :	Start
     // Desc	:	Cache MavMeshAgent and set initial 
@@ -30,13 +32,13 @@ public class NavAgentExample : MonoBehaviour
     {
         // Cash Nav Mesh Reference
         _navAgent = GetComponent<NavMeshAgent>();
-        
+    
         // Turn off auto-update
         /*_navAgent.updatePosition = false;
-        _navAgent.updateRotation = false;*/
+    _navAgent.updateRotation = false;*/
 
         // If not valid Waypoint Network has been assigned then return
-        if (WaypointNetwork == null)
+        if (waypointNetwork == null)
         {
             return;
         }
@@ -52,29 +54,29 @@ public class NavAgentExample : MonoBehaviour
     void SetnextDestination(bool increment)
     {
         // If no network return
-        if (!WaypointNetwork)
+        if (!waypointNetwork)
         {
             return;
         }
-        
-        // Calculatehow much the current waypoint index needs to be incremented
+    
+        // Calculate how much the current waypoint index needs to be incremented
         int incStep = increment ? 1 : 0;
-        
+    
         // Calculate index of next waypoint factoring in the increment with wrap-around and fetch waypoint
-        int nextWaypoint = (CurrentIndex+incStep>=WaypointNetwork.Waypoints.Count)?0:CurrentIndex+incStep;
-        Transform nextWaypointTransform =  WaypointNetwork.Waypoints[nextWaypoint];
+        int nextWaypoint = currentIndex + incStep >= waypointNetwork.waypoints.Count? 0 : currentIndex + incStep;
+        Transform nextWaypointTransform =  waypointNetwork.waypoints[nextWaypoint];
 
         if (nextWaypointTransform != null)
         {
             // Update the current waypoint index, assign its position as the NavMeshAgents
             // Destination and then return
-            CurrentIndex = nextWaypoint;
+            currentIndex = nextWaypoint;
             _navAgent.destination = nextWaypointTransform.position;
             return;
         }
 
         // We did not find a valid waypoint in the list for this iteration
-        CurrentIndex++;
+        currentIndex++;
     }
 
     // ---------------------------------------------------------
@@ -84,43 +86,65 @@ public class NavAgentExample : MonoBehaviour
     void Update()
     {
         // Copy NavMeshAgents state into inspector visible variables
-        HasPath = _navAgent.hasPath;
-        PathPending = _navAgent.pathPending;
-        PathStale = _navAgent.isPathStale;
-        PathStatus = _navAgent.pathStatus;
+        hasPath = _navAgent.hasPath;
+        pathPending = _navAgent.pathPending;
+        pathStale = _navAgent.isPathStale;
+        pathStatus = _navAgent.pathStatus;
 
         if (_navAgent.isOnOffMeshLink)
         {
-            StartCoroutine(Jump(20.0f));
+            StartCoroutine(Jump(1.0f));
             return;
         }
-        
+    
         // If we don't have a path and one isn't pending then set the next
         // waypoint as the target, otherwise if path is stale regenerate path
-        if ((!HasPath && !PathPending) || PathStatus == NavMeshPathStatus.PathInvalid)
+        if (!hasPath && !pathPending || pathStatus == NavMeshPathStatus.PathInvalid)
         {
             SetnextDestination(true);
         }
-        else if (PathStale)
+        else if (pathStale)
         {
             SetnextDestination(false);
         }
     }
 
-    IEnumerator Jump(float duration)
+    // ---------------------------------------------------------
+    // Name	:	Jump
+    // Desc	:	Manual OffMeshLInk traversal using an Animation
+    //			Curve to control agent height.
+    // ---------------------------------------------------------
+    IEnumerator Jump ( float duration )
     {
+        // Get the current OffMeshLink data
         OffMeshLinkData data = _navAgent.currentOffMeshLinkData;
-        Vector3 startPos = _navAgent.transform.position;
-        Vector3 endPos = data.endPos + _navAgent.baseOffset * Vector3.up;
-        float time = 0;
 
-        while (time <= duration)
+        // Start Position is agent current position
+        Vector3	startPos = _navAgent.transform.position;
+
+        // End position is fetched from OffMeshLink data and adjusted for baseoffset of agent
+        Vector3	endPos = data.endPos + _navAgent.baseOffset * Vector3.up;
+
+        // Used to keep track of time
+        float time = 0.0f;
+
+        // Keeo iterating for the passed duration
+        while ( time <=  duration )
         {
+            // Calculate normalized time
             float t = time / duration;
-            _navAgent.transform.position = Vector3.Lerp(startPos, endPos, t);
+
+            // Lerp between start position and end position and adjust height based on evaluation of t on Jump Curve
+            _navAgent.transform.position = Vector3.Lerp( startPos, endPos, t ) + 
+                                           JumpCurve.Evaluate(t) * Vector3.up ;
+
+            // Accumulate time and yield each frame
             time += Time.deltaTime;
             yield return null;
         }
+
+        // All done so inform the agent it can resume control
         _navAgent.CompleteOffMeshLink();
     }
 }
+

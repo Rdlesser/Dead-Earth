@@ -27,7 +27,7 @@ namespace UnityStandardAssets.SceneUtils
         public DemoParticleSystemList demoParticles;
         public float spawnOffset = 0.5f;
         public float multiply = 1;
-        public bool clearOnChange = false;
+        public bool clearOnChange;
         public Text titleText;
         public Transform sceneCamera;
         public Text instructionText;
@@ -40,7 +40,7 @@ namespace UnityStandardAssets.SceneUtils
         private ParticleSystemMultiplier m_ParticleMultiplier;
         private List<Transform> m_CurrentParticleList = new List<Transform>();
         private Transform m_Instance;
-        private static int s_SelectedIndex = 0;
+        private static int s_SelectedIndex;
         private Vector3 m_CamOffsetVelocity = Vector3.zero;
         private Vector3 m_LastPos;
         private static DemoParticleSystem s_Selected;
