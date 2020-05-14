@@ -8,55 +8,25 @@ namespace Dead_Earth.Scripts.AI
 {
 
     // Public Enums of the AI System
-    public enum AIStateType
-    {
-        None,
-        Idle,
-        Alerted,
-        Patrol,
-        Attack, 
-        Feeding,
-        Pursuit,
-        Dead
-    }
-
-    public enum AITargetType
-    {
-        None,
-        Waypoint,
-        Visual_Player,
-        Visual_Light,
-        Visual_Food,
-        Audio
-    }
-
-    public enum AITriggerEventType
-    {
-        Enter,
-        Stay,
-        Exit
-    }
+    public enum AIStateType { None, Idle, Alerted, Patrol, Attack, Feeding, Pursuit, Dead }
+    public enum AITargetType { None, Waypoint, Visual_Player, Visual_Light, Visual_Food, Audio }
+    public enum AITriggerEventType { Enter, Stay, Exit }
 
     /// <summary>
     /// Describes a potential target to the AI System
     /// </summary>
     public struct AITarget
     {
-        // The type of target
-        private AITargetType _type;
-        // The target's collider
-        private Collider _collider;
-        // Current position in the world
-        private Vector3 _position;
-        // Distance from player
-        private float _distance;
-        // Time the target was last ping'd
-        private float _time;
+        private AITargetType _type; // The type of target
+        private Collider _collider; // The target's collider
+        private Vector3 _position; // Current position in the world
+        private float _distance; // Distance from player
+        private float _time; // Time the target was last ping'd
         
-        public AITargetType type => _type;
-        public Collider collider => _collider;
-        public Vector3 position => _position;
-        public float distance
+        public AITargetType Type => _type;
+        public Collider Collider => _collider;
+        public Vector3 Position => _position;
+        public float Distance
         {
             get => _distance;
             set => _distance = value;
@@ -89,8 +59,8 @@ namespace Dead_Earth.Scripts.AI
     {
         
         // Public
-        public AITarget _visualThreat;
-        public AITarget _audioThreat;
+        [NonSerialized] public AITarget VisualThreat;
+        [NonSerialized] public AITarget AudioThreat;
         
         // Protected
         protected AIState _currentState;
@@ -214,6 +184,7 @@ namespace Dead_Earth.Scripts.AI
                 {
                     // Add this tate to the state dictionary 
                     _states[state.GetStateType()] = state;
+                    // And set the parent state machine of this state
                     state.SetStateMachine(this);
                 }
             }
@@ -258,7 +229,7 @@ namespace Dead_Earth.Scripts.AI
             if (_targetTrigger != null)
             {
                 _targetTrigger.radius = _stoppingDistance;
-                _targetTrigger.transform.position = _target.position;
+                _targetTrigger.transform.position = _target.Position;
                 _targetTrigger.enabled = true;
             }
         }
@@ -282,7 +253,7 @@ namespace Dead_Earth.Scripts.AI
             if (_targetTrigger != null)
             {
                 _targetTrigger.radius = s;
-                _targetTrigger.transform.position = _target.position;
+                _targetTrigger.transform.position = _target.Position;
                 _targetTrigger.enabled = true;
             }
         }
@@ -301,7 +272,7 @@ namespace Dead_Earth.Scripts.AI
             if (_targetTrigger != null)
             {
                 _targetTrigger.radius = _stoppingDistance;
-                _targetTrigger.transform.position = t.position;
+                _targetTrigger.transform.position = t.Position;
                 _targetTrigger.enabled = true;
             }
         }
@@ -326,12 +297,12 @@ namespace Dead_Earth.Scripts.AI
         /// </summary>
         protected virtual void FixedUpdate()
         {
-            _visualThreat.Clear();
-            _audioThreat.Clear();
+            VisualThreat.Clear();
+            AudioThreat.Clear();
 
-            if (_target.type != AITargetType.None)
+            if (_target.Type != AITargetType.None)
             {
-                _target.distance = Vector3.Distance(transform.position, _target.position); 
+                _target.Distance = Vector3.Distance(transform.position, _target.Position); 
             }
         }
 

@@ -62,6 +62,7 @@
      <Compile Include="Assets\Dead Earth\Scripts\AI\AIState.cs" />
      <Compile Include="Assets\Dead Earth\Scripts\AI\AIStateMachine.cs" />
      <Compile Include="Assets\Dead Earth\Scripts\AI\AIWaypointNetwork.cs" />
+     <Compile Include="Assets\Dead Earth\Scripts\AI\AIZombieState.cs" />
      <Compile Include="Assets\Dead Earth\Scripts\AI\AIZombieStateMachine.cs" />
      <Compile Include="Assets\Dead Earth\Scripts\AI\State Machine Behaviours\AIStateMachineLink.cs" />
      <Compile Include="Assets\Dead Earth\Scripts\AI\State Machine Behaviours\RootMotionConfigurator.cs" />
