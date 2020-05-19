@@ -17,13 +17,13 @@ public class AIWaypointNetwork : MonoBehaviour
     // Current Display Mode
     public PathDisplayMode displayMode = PathDisplayMode.Connection;
     [HideInInspector]
-    // Start wayopoint index for Paths mode
+    // Start waypoint index for Paths mode
     public int uiStart;
     [HideInInspector]
     // End waypoint index for Paths mode
     public int uiEnd;
     
     // List of Transform references
-    public List<Transform> waypoints = new List<Transform>();
+    public List<Transform> Waypoints = new List<Transform>();
     
 }

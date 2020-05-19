@@ -456,7 +456,7 @@ MonoBehaviour:
   displayMode: 1
   uiStart: 0
   uiEnd: 0
-  waypoints:
+  Waypoints:
   - {fileID: 466688325}
   - {fileID: 1045454403}
   - {fileID: 2045348512}
@@ -582,12 +582,42 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466688324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8, y: 0.13, z: 8.77}
+  m_LocalPosition: {x: -2.03, y: 0, z: 6.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1836139634}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &484571927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 484571928}
+  m_Layer: 8
+  m_Name: CamerMount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484571928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484571927}
+  m_LocalRotation: {x: 0.32789204, y: -0, z: -0, w: 0.94471526}
+  m_LocalPosition: {x: -0.038625717, y: 3.1402638, z: -1.4228973}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1434751554}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
 --- !u!1 &548636321
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +826,7 @@ PrefabInstance:
     - target: {fileID: 926401883, guid: 22e8e9479d52a604abc938e32f8c8873, type: 3}
       propertyPath: Mount
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 484571928}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22e8e9479d52a604abc938e32f8c8873, type: 3}
 --- !u!1 &985914287
@@ -1006,7 +1036,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1.6
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1053,8 +1083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentStateType: 1
-  _targetTrigger: {fileID: 0}
-  _sensorTrigger: {fileID: 0}
+  _targetTrigger: {fileID: 1273467818}
+  _sensorTrigger: {fileID: 548636323}
   _stoppingDistance: 1
   _fov: 60
   _sight: 0.5
@@ -1063,6 +1093,37 @@ MonoBehaviour:
   _health: 100
   _intelligence: 0.5
   _satisfaction: 0.5
+--- !u!114 &1434751556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434751550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2029fb4f8be492fb9ae9a7093b4062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idleTimeRange: {x: 5, y: 10}
+--- !u!114 &1434751557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434751550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f1f0db2895d480784f9df9a2848384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waypointNetwork: {fileID: 308470991}
+  _randomPatrol: 0
+  _currentWaypoint: 0
+  _turnOnSpotThreashold: 90
+  _slerpSpeed: 5
+  _speed: 2
 --- !u!1 &1493716412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1147,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493716412}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -9.92, y: 0.14, z: 21.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1094,7 +1155,7 @@ Transform:
   - {fileID: 1273467817}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1503651699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1252,13 +1313,7 @@ MonoBehaviour:
   displayMode: 1
   uiStart: 0
   uiEnd: 0
-  waypoints:
-  - {fileID: 1424071338}
-  - {fileID: 2045348512}
-  - {fileID: 985914288}
-  - {fileID: 466688325}
-  - {fileID: 1045454403}
-  - {fileID: 2049439701}
+  Waypoints: []
 --- !u!4 &2003739333
 Transform:
   m_ObjectHideFlags: 0

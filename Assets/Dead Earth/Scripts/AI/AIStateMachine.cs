@@ -128,6 +128,8 @@ namespace Dead_Earth.Scripts.AI
 
         public bool UseRootPosition => _rootPositionRefCount > 0;
         public bool UseRootRotation => _rootRotationRefCount > 0;
+        public AITargetType TargetType => _target.Type;
+        public Vector3 TargetPosition => _target.Position;
 
 
         /// <summary>

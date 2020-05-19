@@ -71,8 +71,8 @@ namespace Navigation_Example
             int incStep = increment ? 1 : 0;
         
             // Calculate index of next waypoint factoring in the increment with wrap-around and fetch waypoint
-            int nextWaypoint = currentIndex + incStep >= waypointNetwork.waypoints.Count ? 0 : currentIndex + incStep;
-            Transform nextWaypointTransform =  waypointNetwork.waypoints[nextWaypoint];
+            int nextWaypoint = currentIndex + incStep >= waypointNetwork.Waypoints.Count ? 0 : currentIndex + incStep;
+            Transform nextWaypointTransform =  waypointNetwork.Waypoints[nextWaypoint];
 
             if (nextWaypointTransform != null)
             {

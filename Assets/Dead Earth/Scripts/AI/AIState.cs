@@ -9,7 +9,11 @@ namespace Dead_Earth.Scripts.AI
     {
     
         // Public Method
-        // Called by the parent state machine to assign its reference
+        
+        /// <summary>
+        /// Called by the parent state machine to assign its reference
+        /// </summary>
+        /// <param name="stateMachine"> The state machine to assign </param>
         public virtual void SetStateMachine(AIStateMachine stateMachine)
         {
             _stateMachine = stateMachine;
@@ -85,6 +89,27 @@ namespace Dead_Earth.Scripts.AI
             radius = Mathf.Max(colliderRadius * lossyScale.x,
                                colliderRadius * lossyScale.y);
             radius = Mathf.Max(radius, collider.radius * lossyScale.z);
+        }
+
+        /// <summary>
+        /// Returns the signed angle between two vectors (in degrees)
+        /// </summary>
+        /// <param name="fromVector"> The vector From which we would like to calculate </param>
+        /// <param name="toVector"> The vector TO which we would like to calculate </param>
+        /// <returns> (float) the signed angle between the from and two vector </returns>
+        public static float FidnSignedAngle(Vector3 fromVector, Vector3 toVector)
+        {
+            if (fromVector == toVector)
+            {
+                return 0f;
+            }
+
+            float angle = Vector3.Angle(fromVector, toVector);
+            Vector3 cross = Vector3.Cross(fromVector, toVector);
+
+            angle *= Mathf.Sign(cross.y);
+
+            return angle;
         }
     }
 }

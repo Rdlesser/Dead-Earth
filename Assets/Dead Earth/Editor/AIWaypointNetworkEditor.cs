@@ -31,11 +31,11 @@ public class AIWaypointNetworkEditor : Editor
             network.uiStart = EditorGUILayout.IntSlider("UIStart",
                                                         network.uiStart, 
                                                         0, 
-                                                    network.waypoints.Count - 1);
+                                                    network.Waypoints.Count - 1);
             network.uiEnd = EditorGUILayout.IntSlider("UIEnd",
                                                       network.uiEnd, 
                                                       0, 
-                                                      network.waypoints.Count - 1);
+                                                      network.Waypoints.Count - 1);
         }
         
         // Tell Unity to do its default drawing of all serialized members that are NOT hidden in the inspector
@@ -62,11 +62,11 @@ public class AIWaypointNetworkEditor : Editor
         style.normal.textColor = Color.white;
 
         // Fetch all waypoints from the network and render a label for each one
-        for (int i = 0; i < network.waypoints.Count; i++)
+        for (int i = 0; i < network.Waypoints.Count; i++)
         {
-            if (network.waypoints[i] != null)
+            if (network.Waypoints[i] != null)
             {
-                Handles.Label(network.waypoints[i].position, "Waypoint " + i.ToString(), style);
+                Handles.Label(network.Waypoints[i].position, "Waypoint " + i.ToString(), style);
             }
             
             
@@ -77,17 +77,17 @@ public class AIWaypointNetworkEditor : Editor
         if (network.displayMode == PathDisplayMode.Connection)
         {
             // Allocate array of vector to store the polyline positions
-            Vector3[] linePoints = new Vector3[network.waypoints.Count + 1];
+            Vector3[] linePoints = new Vector3[network.Waypoints.Count + 1];
             
-            for (int i = 0; i <= network.waypoints.Count && network.waypoints.Count > 0; i++)
+            for (int i = 0; i <= network.Waypoints.Count && network.Waypoints.Count > 0; i++)
             {
-                if (network.waypoints[i % network.waypoints.Count] == null)
+                if (network.Waypoints[i % network.Waypoints.Count] == null)
                 {
                     linePoints[i] = new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
                 }
                 else
                 {
-                    linePoints[i] = network.waypoints[i % network.waypoints.Count].position;
+                    linePoints[i] = network.Waypoints[i % network.Waypoints.Count].position;
                 }
             }
             
@@ -103,12 +103,12 @@ public class AIWaypointNetworkEditor : Editor
             NavMeshPath path = new NavMeshPath();
 
             // Assuming both the start and end waypoint indices selected are ligit
-            if (network.waypoints[network.uiStart] != null &&
-                network.waypoints[network.uiEnd] != null)
+            if (network.Waypoints[network.uiStart] != null &&
+                network.Waypoints[network.uiEnd] != null)
             {
                 // Fetch their positions from the waypoint network
-                Vector3 from = network.waypoints[network.uiStart].position;
-                Vector3 to = network.waypoints[network.uiEnd].position;
+                Vector3 from = network.Waypoints[network.uiStart].position;
+                Vector3 to = network.Waypoints[network.uiEnd].position;
 
                 // Request a path search on the nav mesh. This will return the path between
                 // from and to vectors

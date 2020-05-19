@@ -15,6 +15,7 @@ namespace Dead_Earth.Scripts.AI
         protected int _bodyPartLayer = -1;
         protected int _visualLayerMask = -1;
         protected AIZombieStateMachine _zombieStateMachine;
+        
 
         /// <summary>
         /// Calculate the masks and layers used for Raycasting and layer testing
@@ -35,7 +36,7 @@ namespace Dead_Earth.Scripts.AI
         /// <summary>
         /// Check for type compliance and store reference as derived type
         /// </summary>
-        /// <param name="stateMachine"> The state machine </param>
+        /// <param name="stateMachine"> The state machine to set </param>
         public override void SetStateMachine(AIStateMachine stateMachine)
         {
             if (stateMachine.GetType() == typeof(AIZombieStateMachine))
@@ -92,7 +93,6 @@ namespace Dead_Earth.Scripts.AI
                         }
                     }
                 }
-                // TODO: Add comments
                 else if (other.CompareTag("Flash Light") && currentType != AITargetType.Visual_Player)
                 {
                     BoxCollider flashLightTrigger = (BoxCollider) other;
