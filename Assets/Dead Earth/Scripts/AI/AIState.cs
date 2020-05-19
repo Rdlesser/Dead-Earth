@@ -97,7 +97,7 @@ namespace Dead_Earth.Scripts.AI
         /// <param name="fromVector"> The vector From which we would like to calculate </param>
         /// <param name="toVector"> The vector TO which we would like to calculate </param>
         /// <returns> (float) the signed angle between the from and two vector </returns>
-        public static float FidnSignedAngle(Vector3 fromVector, Vector3 toVector)
+        public static float FindSignedAngle(Vector3 fromVector, Vector3 toVector)
         {
             if (fromVector == toVector)
             {

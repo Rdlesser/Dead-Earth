@@ -121,7 +121,7 @@ public class AIZombieState_Patrol1 : AIZombieState
         }
         
         // Sound is the third highest priority
-        if (_zombieStateMachine.VisualThreat.Type == AITargetType.Audio)
+        if (_zombieStateMachine.AudioThreat.Type == AITargetType.Audio)
         {
             _zombieStateMachine.SetTarget(_zombieStateMachine.AudioThreat);
             return AIStateType.Alerted;
@@ -243,14 +243,15 @@ public class AIZombieState_Patrol1 : AIZombieState
     /// <summary>
     /// Override IK Goals
     /// </summary>
-    public override void OnAnimatorIKUpdated()
-    {
-        if (_zombieStateMachine == null)
-        {
-            return;
-        }
-        
-        _zombieStateMachine.Animator.SetLookAtPosition(_zombieStateMachine.TargetPosition + Vector3.up);
-        _zombieStateMachine.Animator.SetLookAtWeight(0.55f);
-    }
+    // public override void OnAnimatorIKUpdated()
+    // {
+    //     if (_zombieStateMachine == null)
+    //     {
+    //         return;
+    //     }
+    //     
+    //     _zombieStateMachine.Animator.SetLookAtPosition(_zombieStateMachine.NavAgent.desiredVelocity + 
+    //                                                    Vector3.up);
+    //     _zombieStateMachine.Animator.SetLookAtWeight(0.55f);
+    // }
 }
