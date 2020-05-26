@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Dead_Earth.Scripts.AI.State_Machine_Behaviours;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Dead_Earth.Scripts.AI
 {
@@ -59,8 +60,8 @@ namespace Dead_Earth.Scripts.AI
     {
         
         // Public
-        [NonSerialized] public AITarget VisualThreat;
-        [NonSerialized] public AITarget AudioThreat;
+        [NonSerialized] public AITarget VisualThreat = new AITarget();
+        [NonSerialized] public AITarget AudioThreat = new AITarget();
         
         // Protected
         protected AIState _currentState;
@@ -68,12 +69,15 @@ namespace Dead_Earth.Scripts.AI
         protected AITarget _target;
         protected int _rootPositionRefCount;
         protected int _rootRotationRefCount;
+        protected bool _isTargetReached;
 
         // Protected Inspector Assigned
         [SerializeField] protected AIStateType _currentStateType = AIStateType.Idle;
         [SerializeField] protected SphereCollider _targetTrigger;
         [SerializeField] protected SphereCollider _sensorTrigger;
-        
+        [SerializeField] protected AIWaypointNetwork _waypointNetwork;
+        [SerializeField] protected bool _randomPatrol;
+        [SerializeField] protected int _currentWaypoint = -1;
         [SerializeField] [Range(0, 15)] protected float _stoppingDistance = 1.0f;
 
         // Component Cache
@@ -83,6 +87,8 @@ namespace Dead_Earth.Scripts.AI
         protected Transform _transform;
         
         // Public properties
+        public bool IsTargetReached => _isTargetReached;
+        public bool InMeleeRange { get; set; }
         public Animator Animator => _animator;
         public NavMeshAgent NavAgent => _navAgent;
         public Vector3 SensorPosition
@@ -130,6 +136,18 @@ namespace Dead_Earth.Scripts.AI
         public bool UseRootRotation => _rootRotationRefCount > 0;
         public AITargetType TargetType => _target.Type;
         public Vector3 TargetPosition => _target.Position;
+        public int TargetColliderID
+        {
+            get
+            {
+                if (_target.Collider)
+                {
+                    return _target.Collider.GetInstanceID();
+                }
+
+                return -1;
+            }
+        }
 
 
         /// <summary>
@@ -212,6 +230,69 @@ namespace Dead_Earth.Scripts.AI
                     script.StateMachine = this;
                 }
             }
+        }
+        
+        /// <summary>
+        /// Fetched the world space position of the state machine's currently <br/>
+        /// set waypoint with optional increment
+        /// </summary>
+        /// <param name="increment"> Should the waypoint number be incremented </param>
+        /// <returns> Vector3 representing the waypoint position </returns>
+        public Vector3 GetWaypointPosition ( bool increment )
+        {
+            if (_currentWaypoint == -1)
+            {
+                if (_randomPatrol)
+                {    
+                    _currentWaypoint = Random.Range(0, _waypointNetwork.Waypoints.Count);
+                }
+                else
+                {
+                    _currentWaypoint = 0;
+                }
+            }
+            else if (increment)
+            {
+                NextWaypoint ();
+            }
+
+            // Fetch the new waypoint from the waypoint list
+            if( _waypointNetwork.Waypoints[_currentWaypoint]!=null)
+            {
+                Transform newWaypoint = _waypointNetwork.Waypoints [_currentWaypoint];
+
+                // This is our new target position
+                var waypointPosition = newWaypoint.position;
+                SetTarget (	AITargetType.Waypoint, 
+                           null, 
+                           waypointPosition, 
+                           Vector3.Distance(waypointPosition , transform.position));
+		
+                return waypointPosition;
+            }
+
+            return Vector3.zero;
+        }
+        
+        private void NextWaypoint()
+        {
+            // Increase the current waypoint with wrap-around to zero (or choose a random waypoint)
+            if (_randomPatrol && _waypointNetwork.Waypoints.Count>1)
+            {
+                // Keep generating random waypoint until we find one that isn't the current one
+                // NOTE: Very important that waypoint networks do not only have one waypoint :)
+                int oldWaypoint = _currentWaypoint;
+                while (_currentWaypoint==oldWaypoint)
+                {
+                    _currentWaypoint = Random.Range (0,_waypointNetwork.Waypoints.Count);
+                }
+            }
+            else
+            {
+                _currentWaypoint = (_currentWaypoint + 1) % _waypointNetwork.Waypoints.Count;
+            }
+
+
         }
 
         /// <summary>
@@ -306,6 +387,8 @@ namespace Dead_Earth.Scripts.AI
             {
                 _target.Distance = Vector3.Distance(transform.position, _target.Position); 
             }
+
+            _isTargetReached = false;
         }
 
         /// <summary>
@@ -354,6 +437,8 @@ namespace Dead_Earth.Scripts.AI
             {
                 return;
             }
+
+            _isTargetReached = true;
             
             // Notify Child State
             if (_currentState)
@@ -361,21 +446,33 @@ namespace Dead_Earth.Scripts.AI
                 _currentState.OnDestinationReached(true);
             }
         }
+        
+        protected virtual void OnTriggerStay(Collider other)
+        {
+            if (_targetTrigger == null || other != _targetTrigger)
+            {
+                return;
+            }
+
+            _isTargetReached = true;
+        }
 
         /// <summary>
         /// Informs the Child State that the AI entity is no longer at its destination <br/>
         /// (typically true when a new target has been set by the child).
         /// </summary>
         /// <param name="other"> The trigger collider entered </param>
-        public virtual void OnTriggerExit(Collider other)
+        protected virtual void OnTriggerExit(Collider other)
         {
             if (_targetTrigger == null || other != _targetTrigger)
             {
                 return;
             }
+
+            _isTargetReached = false;
             
             // Notify Child State
-            if (_currentState)
+            if (_currentState != null)
             {
                 _currentState.OnDestinationReached(false);
             }

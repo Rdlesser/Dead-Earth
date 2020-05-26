@@ -8,9 +8,11 @@ namespace Dead_Earth.Scripts.AI
         [SerializeField] [Range(1f, 60f)] private float _maxDuration = 10f;
         [SerializeField] private float _waypointAngleThreshold = 90f;
         [SerializeField] private float _threatAngleThreshold = 10f;
+        [SerializeField] float	_directionChangeTime	=	1.5f;
 
         // Private Fields
         private float _timer;
+        float   _directionChangeTimer;
         
         /// <summary>
         /// Returns the type of the state
@@ -40,6 +42,7 @@ namespace Dead_Earth.Scripts.AI
             _zombieStateMachine.AttackType = 0;
 
             _timer = _maxDuration;
+            _directionChangeTimer = 0.0f;
         }
 
         /// <summary>
@@ -50,11 +53,14 @@ namespace Dead_Earth.Scripts.AI
         {
             // Reduce Timer
             _timer -= Time.deltaTime;
+            _directionChangeTimer += Time.deltaTime;
 
 			// Transition into a patrol state if available
             if (_timer <= 0f)
             {
-                return AIStateType.Patrol; 
+                _zombieStateMachine.NavAgent.SetDestination(_zombieStateMachine.GetWaypointPosition (false));
+                _zombieStateMachine.NavAgent.isStopped = false;
+                _timer = _maxDuration;
             }
             
 			// Do we have a visual threat that is the player. These take priority over audio threats
@@ -82,14 +88,15 @@ namespace Dead_Earth.Scripts.AI
             if (_zombieStateMachine.AudioThreat.Type == AITargetType.None &&
                 _zombieStateMachine.VisualThreat.Type == AITargetType.Visual_Food)
             {
-                _zombieStateMachine.SetTarget(_zombieStateMachine.VisualThreat);
+                _zombieStateMachine.SetTarget(_stateMachine.VisualThreat);
                 return AIStateType.Pursuit;
             }
 
             float angle;
 
-            if (_zombieStateMachine.TargetType == AITargetType.Audio || 
-                _zombieStateMachine.TargetType == AITargetType.Visual_Light)
+            if ((_zombieStateMachine.TargetType == AITargetType.Audio || 
+                _zombieStateMachine.TargetType == AITargetType.Visual_Light) &&
+                !_zombieStateMachine.IsTargetReached)
             {
                 var zombieTransform = _zombieStateMachine.transform;
                 angle = FindSignedAngle(zombieTransform.forward,
@@ -101,16 +108,22 @@ namespace Dead_Earth.Scripts.AI
                     return AIStateType.Pursuit;
                 }
 
-                if (Random.value < _zombieStateMachine.Intelligence)
+                if (_directionChangeTimer > _directionChangeTime)
                 {
-                    _zombieStateMachine.Seeking = (int) Mathf.Sign(angle);
+                    if (Random.value < _zombieStateMachine.Intelligence)
+                    {
+                        _zombieStateMachine.Seeking = (int) Mathf.Sign(angle);
+                    }
+                    else
+                    {
+                        _zombieStateMachine.Seeking = (int) Mathf.Sign(Random.Range(-1f, 1f)); 
+                    }
+                    
+                    _directionChangeTimer = 0f;
                 }
-                else
-                {
-                    _zombieStateMachine.Seeking = (int) Mathf.Sign(Random.Range(-1f, 1f)); 
-                }
+
             }
-            else if (_zombieStateMachine.TargetType == AITargetType.Waypoint)
+            else if (_zombieStateMachine.TargetType == AITargetType.Waypoint && !_zombieStateMachine.NavAgent.pathPending)
             {
                 var zombieTransform = _zombieStateMachine.transform;
                 angle = FindSignedAngle(zombieTransform.forward,
@@ -121,8 +134,13 @@ namespace Dead_Earth.Scripts.AI
                     return AIStateType.Patrol;
                 }
 
-                _zombieStateMachine.Seeking = (int) Mathf.Sign(angle);
+                if (_directionChangeTimer > _directionChangeTime)
+                {
+                    _zombieStateMachine.Seeking = (int) Mathf.Sign(angle);
+                    _directionChangeTimer = 0.0f;
+                }
             }
+            
             return AIStateType.Alerted;
             
         }
