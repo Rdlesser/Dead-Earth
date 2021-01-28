@@ -9,6 +9,9 @@ namespace Dead_Earth.Scripts
      /// </summary>
      public class GameSceneManager : MonoBehaviour
      {
+          // Inspector Assigned Variables
+          [SerializeField] private ParticleSystem _bloodParticles;
+          
           // Statics
           private static GameSceneManager _instance;
 
@@ -27,7 +30,10 @@ namespace Dead_Earth.Scripts
 
           // Private
           private Dictionary<int, AIStateMachine> _stateMachines = new Dictionary<int, AIStateMachine>();
-     
+          
+          // Properties
+          public ParticleSystem BloodParticles => _bloodParticles;
+
           // Public Methods
           /// <summary>
           /// Stores the passed state machine in the dictionary with

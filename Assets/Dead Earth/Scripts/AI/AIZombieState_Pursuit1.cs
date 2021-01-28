@@ -40,7 +40,6 @@ namespace Dead_Earth.Scripts.AI
             
             // Configure State Machine
             _zombieStateMachine.NavAgentControl(true, false);
-            _zombieStateMachine.Speed = _speed;
             _zombieStateMachine.Seeking = 0;
             _zombieStateMachine.Feeding = false;
             _zombieStateMachine.AttackType = 0;
@@ -86,6 +85,7 @@ namespace Dead_Earth.Scripts.AI
                         return AIStateType.Alerted; // Become alert and search for targets
                     
                     case AITargetType.Visual_Food:
+                        Debug.Log("Food Reached");
                         return AIStateType.Feeding;
 
                 }
@@ -94,43 +94,52 @@ namespace Dead_Earth.Scripts.AI
             // If for any reason the nav agent has lost its path then call then drop into alerted state
             // so it will try to re-acquire the target or eventually give up and resume patrolling
             if (_zombieStateMachine.NavAgent.isPathStale || 
-                !_zombieStateMachine.NavAgent.hasPath || 
+                !_zombieStateMachine.NavAgent.hasPath && !_zombieStateMachine.NavAgent.pathPending || 
                 _zombieStateMachine.NavAgent.pathStatus != NavMeshPathStatus.PathComplete)
             {
                 return AIStateType.Alerted;
             }
-            
-            // If we are close to the target that was a player and we still have the player
-            // in our vision then keep facing right at the player
-            if (!_zombieStateMachine.UseRootRotation && 
-                _zombieStateMachine.TargetType == AITargetType.Visual_Player &&
-                _zombieStateMachine.VisualThreat.Type == AITargetType.Visual_Player && 
-                _zombieStateMachine.IsTargetReached)
+
+            if (_zombieStateMachine.NavAgent.pathPending)
             {
-                Vector3 targetPosition = _zombieStateMachine.TargetPosition;
-                var zombiePosition = _zombieStateMachine.transform.position;
-                targetPosition.y = zombiePosition.y;
-                Quaternion newRotation = 
-                    Quaternion.LookRotation(targetPosition - zombiePosition);
-                _zombieStateMachine.transform.rotation = newRotation;
+                _zombieStateMachine.Speed = 0;
             }
-            // SLowly update our rotation to match the nav agents desired rotation BUT
-            // only if we are not persuing the player and are really close to him
-            else if (!_stateMachine.UseRootRotation && !_zombieStateMachine.IsTargetReached)
+            else
             {
-                // Generate a new Quaternion representing the rotation we should have 
-                Quaternion newRotation = Quaternion.LookRotation(_zombieStateMachine.NavAgent.desiredVelocity);
+                _zombieStateMachine.Speed = _speed;
                 
-                // Smoothly rotate to the new rotation over time
-                _zombieStateMachine.transform.rotation = Quaternion.Slerp(_zombieStateMachine.transform.rotation, 
-                                                                          newRotation, 
-                                                                          Time.deltaTime * _slerpSpeed);
+                // If we are close to the target that was a player and we still have the player
+                // in our vision then keep facing right at the player
+                if (!_zombieStateMachine.UseRootRotation && 
+                    _zombieStateMachine.TargetType == AITargetType.Visual_Player &&
+                    _zombieStateMachine.VisualThreat.Type == AITargetType.Visual_Player && 
+                    _zombieStateMachine.IsTargetReached)
+                {
+                    Vector3 targetPosition = _zombieStateMachine.TargetPosition;
+                    var zombiePosition = _zombieStateMachine.transform.position;
+                    targetPosition.y = zombiePosition.y;
+                    Quaternion newRotation = 
+                        Quaternion.LookRotation(targetPosition - zombiePosition);
+                    _zombieStateMachine.transform.rotation = newRotation;
+                }
+                // SLowly update our rotation to match the nav agents desired rotation BUT
+                // only if we are not persuing the player and are really close to him
+                else if (!_stateMachine.UseRootRotation && !_zombieStateMachine.IsTargetReached)
+                {
+                    // Generate a new Quaternion representing the rotation we should have 
+                    Quaternion newRotation = Quaternion.LookRotation(_zombieStateMachine.NavAgent.desiredVelocity);
+                
+                    // Smoothly rotate to the new rotation over time
+                    _zombieStateMachine.transform.rotation = Quaternion.Slerp(_zombieStateMachine.transform.rotation, 
+                                                                              newRotation, 
+                                                                              Time.deltaTime * _slerpSpeed);
+                }
+                else if (_zombieStateMachine.IsTargetReached)
+                {
+                    return AIStateType.Alerted;
+                }
             }
-            else if (_zombieStateMachine.IsTargetReached)
-            {
-                return AIStateType.Alerted;
-            }
-            
+
             // Do we have a visual threat that is the player
             if (_zombieStateMachine.VisualThreat.Type == AITargetType.Visual_Player)
             {

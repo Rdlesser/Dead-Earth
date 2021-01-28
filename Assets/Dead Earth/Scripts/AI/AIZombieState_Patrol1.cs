@@ -43,7 +43,6 @@ namespace Dead_Earth.Scripts.AI
 
             // Configure State Machine 
             _zombieStateMachine.NavAgentControl(true, false);
-            _zombieStateMachine.Speed = _speed;
             _zombieStateMachine.Seeking = 0;
             _zombieStateMachine.Feeding = false;
             _zombieStateMachine.AttackType = 0;
@@ -98,6 +97,16 @@ namespace Dead_Earth.Scripts.AI
                 }
             }
 
+            if (_zombieStateMachine.NavAgent.pathPending)
+            {
+                _zombieStateMachine.Speed = 0;
+                return AIStateType.Patrol;
+            }
+            else
+            {
+                _zombieStateMachine.Speed = _speed;
+            }
+            
             // Calculate angle we need to turn through to be facing our target
             var zombieTransform = _zombieStateMachine.transform;
             float angle = Vector3.Angle(zombieTransform.forward,

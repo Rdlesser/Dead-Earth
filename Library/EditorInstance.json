@@ -1,4 +1,6 @@
 {
-  "process_id": 32432,
-  "version": "2019.3.5f1"
+	"process_id" : 46640,
+	"version" : "2019.3.5f1",
+	"app_path" : "/Users/robert/Code/2019.3.5f1/Unity.app",
+	"app_contents_path" : "/Users/robert/Code/2019.3.5f1/Unity.app/Contents"
 }

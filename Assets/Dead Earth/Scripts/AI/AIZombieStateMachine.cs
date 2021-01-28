@@ -16,6 +16,8 @@ namespace Dead_Earth.Scripts.AI
         [SerializeField] [Range(0, 100)] private int _health = 100;
         [SerializeField] [Range(0f, 1f)] private float _intelligence = 0.5f;
         [SerializeField] [Range(0f, 1f)] private float _satisfaction = 1f;
+        [SerializeField] private float _replenishRate = 0.5f;
+        [SerializeField] private float _depletionRate = 0.1f;
         
         // Private
         private int _seeking;
@@ -31,6 +33,7 @@ namespace Dead_Earth.Scripts.AI
         private static readonly int AttackHash = Animator.StringToHash("Attack");
 
         // Public Properties
+        public float ReplenishRate => _replenishRate;
         public float Fov => _fov;
         public float Hearing => _hearing;
         public float Sight => _sight;

@@ -98,8 +98,9 @@ namespace Dead_Earth.Scripts.AI
             // Patrol if idle time has been exceeded
             if (_timer > _idleTime)
             {
-                Debug.Log("Going into Patrol");
-                return AIStateType.Patrol;
+                _zombieStateMachine.NavAgent.SetDestination(_zombieStateMachine.GetWaypointPosition(false));
+                _zombieStateMachine.NavAgent.isStopped = false;
+                return AIStateType.Alerted;
             }
 
             // No state change required
