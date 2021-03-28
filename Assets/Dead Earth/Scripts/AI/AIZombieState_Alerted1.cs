@@ -11,8 +11,8 @@ namespace Dead_Earth.Scripts.AI
         [SerializeField] float	_directionChangeTime	=	1.5f;
 
         // Private Fields
-        private float _timer;
-        float   _directionChangeTimer;
+        private float _timer = 0f;
+        float   _directionChangeTimer = 0f;
         
         /// <summary>
         /// Returns the type of the state
@@ -86,14 +86,15 @@ namespace Dead_Earth.Scripts.AI
 
 			// Is the threat food
             if (_zombieStateMachine.AudioThreat.Type == AITargetType.None &&
-                _zombieStateMachine.VisualThreat.Type == AITargetType.Visual_Food)
+                _zombieStateMachine.VisualThreat.Type == AITargetType.Visual_Food && 
+                _zombieStateMachine.TargetType == AITargetType.None)
             {
                 _zombieStateMachine.SetTarget(_stateMachine.VisualThreat);
                 return AIStateType.Pursuit;
             }
 
             float angle;
-
+            
             if ((_zombieStateMachine.TargetType == AITargetType.Audio || 
                 _zombieStateMachine.TargetType == AITargetType.Visual_Light) &&
                 !_zombieStateMachine.IsTargetReached)
@@ -140,9 +141,17 @@ namespace Dead_Earth.Scripts.AI
                     _directionChangeTimer = 0.0f;
                 }
             }
-            
+            else 
+            {
+                if (_directionChangeTimer > _directionChangeTime) 
+                {
+                    _zombieStateMachine.Seeking = (int)Mathf.Sign (Random.Range (-1.0f, 1.0f));
+                    _directionChangeTimer = 0.0f;
+                }
+            }
+
             return AIStateType.Alerted;
-            
+
         }
         
     }

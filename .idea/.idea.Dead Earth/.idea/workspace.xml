@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aead888-d938-49a4-a37a-d5a6d37bc8ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dead Earth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dead Earth/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Navigation Example/Navigation Example.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Navigation Example/Navigation Example.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/AnnotationManager" beforeDir="false" afterPath="$PROJECT_DIR$/Library/AnnotationManager" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/19/1957a512d6a44ae1ccdecba0bf4b7b0b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/97/972bb534bad6b5f65c1edba5de464551" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/b7/b79c9a11939308d516a9b39f381f2677" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/da/dafd0f6623aa53db4f1a9897450f50b7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/eb/ebaede8e8312d44333e86f8ad822ad6a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/a9/a990cab3964dca0f4f156cb830698560" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/EditorInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorInstance.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
@@ -31,24 +30,8 @@
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler4.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler4.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler5.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler5.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler6.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler6.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler7.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler7.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-065a12169df644f5787c7f9b1ba2e60d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-10909647cda774770a22b9995dde1cdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-183d268073ee74840b68d104619cc245" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-1ca74ddf11e274ca284d830d84d0bf5d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-2a50eb13e5d4f45e4909fc83e9d0e2cb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4ba98595146024d67a8fa6a635e07518" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-52c866580bfe040d4a3cef533111d63a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-56b70e924224c4e96bc41dc486ad4141" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-58409b9e18c764bedba8f9420a06bd91" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-7a1637a604dbb48f3af1d8dae7d1379f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8a78755e47be14f9b8beda8de82508ca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-c0f1ad5f79b96487686abf40a6d76886" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-dcfb72075402143e8995484769a70a7d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f72635060d20d41a3a433696425fea2c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" beforeDir="false" afterPath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +112,7 @@
     <setting file="file://$USER_HOME$/Downloads/Scripts/AIZombieState_Alerted1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/UI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/74502893-263F-4D88-8D2B-9B45E39511EC/ac/c5ca7226/NavMeshAgent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Lesson-6-Resources/AIWaypointNetworkEditor.cs" root0="SKIP_HIGHLIGHTING" />
@@ -157,6 +141,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Editor/Water/Water4/WaterEditorUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SampleScenes/Scripts/CameraSwitch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Editor/Water/Water4/GerstnerDisplaceEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/Lesson 25 Resources/Scripts/AI/AIZombieState_Pursuit1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SampleScenes/Scripts/ParticleSceneControls.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Editor/Water/Water4/PlanarReflectionEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SampleScenes/Shaders/Skybox-Procedural.shader" root0="FORCE_HIGHLIGHTING" />
@@ -166,6 +151,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Navigation Example/SmoothCameramMount.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Vehicles/Car/Scripts/SkidTrail.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Navigation Example/NavAgentExample.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/Lesson_27_-_Resources/Scripts/FPS Controller/FPSController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIWaypointNetwork.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" root0="FORCE_HIGHLIGHTING" />
@@ -173,6 +159,7 @@
     <setting file="file://$USER_HOME$/Downloads/Lesson_25_-_Resources/Scripts/AI/AIZombieState_Pursuit1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/Lesson_27_-_Resources/Scripts/AI/AIZombieState_Alerted1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Vehicles/Car/Scripts/CarController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AISensor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -193,8 +180,8 @@
       <option value="$USER_HOME$/Downloads/Scripts 4/AIZombieState_Pursuit1.cs" />
       <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Patrol1.cs" />
       <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Pursuit1.cs" />
-      <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" />
       <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" />
     </changedPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -225,7 +212,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3503535" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35034803" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
@@ -253,10 +240,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="47004">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="47004" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -294,7 +281,7 @@
       <workItem from="1591451511683" duration="3480000" />
       <workItem from="1592653080287" duration="3274000" />
       <workItem from="1611655884150" duration="13692000" />
-      <workItem from="1616593744076" duration="1557000" />
+      <workItem from="1616593744076" duration="10514000" />
     </task>
     <servers />
   </component>
@@ -390,6 +377,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs</url>
+          <line>79</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs" initialLine="43" containingFunctionPresentation="method 'GetVectorOffset'">
+            <startOffsets>
+              <option value="2294" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2347" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs</url>
+          <line>349</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs" initialLine="250" containingFunctionPresentation="method 'FixedUpdate'">
+            <startOffsets>
+              <option value="11651" />
+            </startOffsets>
+            <endOffsets>
+              <option value="11926" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
