@@ -8,7 +8,7 @@ namespace Dead_Earth.Scripts.AI
     /// </summary>
     public class AIZombieState_Pursuit1 : AIZombieState
     {
-        [SerializeField] [Range(0, 10)] private float _speed = 3f;
+        [SerializeField] [Range(0, 10)] private float _speed = 1f;
         [SerializeField] private float _slerpSpeed = 5f;
         [SerializeField] private float _repathDistanceMultiplier = 0.035f;
         [SerializeField] private float _repathVisualMinDuration = 0.05f;
@@ -104,6 +104,7 @@ namespace Dead_Earth.Scripts.AI
             {
                 _zombieStateMachine.Speed = 0;
             }
+           
             else
             {
                 _zombieStateMachine.Speed = _speed;
@@ -139,7 +140,6 @@ namespace Dead_Earth.Scripts.AI
                     return AIStateType.Alerted;
                 }
             }
-
             // Do we have a visual threat that is the player
             if (_zombieStateMachine.VisualThreat.Type == AITargetType.Visual_Player)
             {
@@ -158,7 +158,7 @@ namespace Dead_Earth.Scripts.AI
                 }
                 
                 // Make sure this is the current target
-                _stateMachine.SetTarget(_zombieStateMachine.VisualThreat);
+                _zombieStateMachine.SetTarget(_zombieStateMachine.VisualThreat);
                 
                 // Remain in pursuit state
                 return AIStateType.Pursuit;
@@ -170,6 +170,7 @@ namespace Dead_Earth.Scripts.AI
             {
                 return AIStateType.Pursuit;
             }
+			
             
             // If we have a visual threat that is the player's light
             if (_zombieStateMachine.VisualThreat.Type == AITargetType.Visual_Light)

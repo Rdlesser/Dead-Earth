@@ -7,30 +7,13 @@
     <list default="true" id="3aead888-d938-49a4-a37a-d5a6d37bc8ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dead Earth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dead Earth/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Navigation Example/Navigation Example.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Navigation Example/Navigation Example.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/AnnotationManager" beforeDir="false" afterPath="$PROJECT_DIR$/Library/AnnotationManager" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/a9/a990cab3964dca0f4f156cb830698560" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/EditorInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorInstance.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Pursuit1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Pursuit1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ProtocolInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ProtocolInstance.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ShaderCache/EditorEncounteredVariants" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ShaderCache/EditorEncounteredVariants" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/405995-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/405995-mainStage.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/48e3ff-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/48e3ff-mainStage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/expandedItems" beforeDir="false" afterPath="$PROJECT_DIR$/Library/expandedItems" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler2.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler2.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler3.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler3.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler4.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler4.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler5.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler5.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler6.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler6.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" beforeDir="false" afterPath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,39 +92,27 @@
     <setting file="file://$USER_HOME$/Downloads/NavAgentExample.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C3C29BCD-E51B-436A-8A8F-E09A088112B3/48/78279180/NavMesh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Utility/ObjectResetter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Scripts/AIZombieState_Alerted1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/UI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/74502893-263F-4D88-8D2B-9B45E39511EC/ac/c5ca7226/NavMeshAgent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Lesson-6-Resources/AIWaypointNetworkEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Pursuit1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Lesson-6-Resources/AIWaypointNetwork.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Scripts 5/AIZombieState_Alerted1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/NavAgentExample 2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56D06A57-F53C-41D2-870F-30C37033877D/a0/c7d30f81/CharacterController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Lesson 13 - Resources/NavAgentRootMotion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/80B06011-2927-4097-B367-C7AD03DA7474/aa/ce9e1c5c/NavMeshAgent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Utility/ForcedReset.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Navigation Example/NavAgentNoRootMotion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Feeding1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Scripts 2/AIStateMachine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Navigation Example/NavAgentRootMotion.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Scripts 2/AIZombieState_Patrol1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Scripts 2/AIZombieState_Alerted1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Scripts 3/FPS Controller/FPSController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Scripts 2/AIZombieState_Pursuit1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C3C29BCD-E51B-436A-8A8F-E09A088112B3/53/586cbca0/NavMeshAgent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Editor/AIWaypointNetworkEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/GameSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Vehicles/Aircraft/Scripts/JetParticleEffect.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Scripts 4/AIZombieState_Pursuit1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SampleScenes/Menu/Scripts/PauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Editor/Water/Water4/WaterEditorUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SampleScenes/Scripts/CameraSwitch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Editor/Water/Water4/GerstnerDisplaceEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Lesson 25 Resources/Scripts/AI/AIZombieState_Pursuit1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SampleScenes/Scripts/ParticleSceneControls.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Editor/Water/Water4/PlanarReflectionEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SampleScenes/Shaders/Skybox-Procedural.shader" root0="FORCE_HIGHLIGHTING" />
@@ -151,15 +122,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Navigation Example/SmoothCameramMount.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Vehicles/Car/Scripts/SkidTrail.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Navigation Example/NavAgentExample.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Lesson_27_-_Resources/Scripts/FPS Controller/FPSController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIWaypointNetwork.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Vehicles/Car/Scripts/WheelEffects.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Lesson_25_-_Resources/Scripts/AI/AIZombieState_Pursuit1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/Lesson_27_-_Resources/Scripts/AI/AIZombieState_Alerted1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Vehicles/Car/Scripts/CarController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AISensor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -167,7 +135,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/State Machine Behaviours/AIStateMachineLink.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Idle1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Utility/SimpleActivatorMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/Lesson_25_-_Resources/Scripts/AI/AIZombieState_Patrol1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Patrol1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/Lesson_25_-_Resources/Scripts/AI/AIZombieState_Pursuit1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Utility/FOVKick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Utility/EventSystemChecker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Utility/WaypointProgressTracker.cs" root0="FORCE_HIGHLIGHTING" />
@@ -179,9 +149,9 @@
       <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Feeding1.cs" />
       <option value="$USER_HOME$/Downloads/Scripts 4/AIZombieState_Pursuit1.cs" />
       <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Patrol1.cs" />
-      <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Pursuit1.cs" />
       <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs" />
       <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" />
+      <option value="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Pursuit1.cs" />
     </changedPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -240,10 +210,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="47004">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="41544">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="47004" />
+      <option name="pid" value="41544" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -379,30 +349,43 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs</url>
-          <line>79</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs" initialLine="43" containingFunctionPresentation="method 'GetVectorOffset'">
+          <url>file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs</url>
+          <line>110</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" initialLine="111" containingFunctionPresentation="method 'OnUpdate'">
             <startOffsets>
-              <option value="2294" />
+              <option value="4154" />
             </startOffsets>
             <endOffsets>
-              <option value="2347" />
+              <option value="4203" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs</url>
-          <line>349</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/FPS Controller/FPSController.cs" initialLine="250" containingFunctionPresentation="method 'FixedUpdate'">
+          <url>file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs</url>
+          <line>54</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Alerted1.cs" initialLine="54" containingFunctionPresentation="method 'OnUpdate'">
             <startOffsets>
-              <option value="11651" />
+              <option value="1688" />
             </startOffsets>
             <endOffsets>
-              <option value="11926" />
+              <option value="1713" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="13" />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Pursuit1.cs</url>
+          <line>61</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Dead Earth/Scripts/AI/AIZombieState_Pursuit1.cs" initialLine="61" containingFunctionPresentation="method 'OnUpdate'">
+            <startOffsets>
+              <option value="2106" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2131" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
