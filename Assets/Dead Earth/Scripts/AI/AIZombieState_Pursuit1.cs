@@ -9,6 +9,8 @@ namespace Dead_Earth.Scripts.AI
     public class AIZombieState_Pursuit1 : AIZombieState
     {
         [SerializeField] [Range(0, 10)] private float _speed = 1f;
+        [SerializeField] [Range(0f, 1f)] private float _lookAtWeight = 0.7f;
+        [SerializeField] [Range(0f, 90f)] private float _lookAtAngleThreshold = 15.0f;
         [SerializeField] private float _slerpSpeed = 5f;
         [SerializeField] private float _repathDistanceMultiplier = 0.035f;
         [SerializeField] private float _repathVisualMinDuration = 0.05f;
@@ -20,6 +22,7 @@ namespace Dead_Earth.Scripts.AI
         // Private fields
         private float _timer;
         private float _repathTimer;
+        private float _currentLookAtWeight = 0f;
 
         // Mandatory Overrides
         public override AIStateType GetStateType()
@@ -51,6 +54,8 @@ namespace Dead_Earth.Scripts.AI
             // Set Path
             _zombieStateMachine.NavAgent.SetDestination(_zombieStateMachine.TargetPosition);
             _zombieStateMachine.NavAgent.isStopped = false;
+            
+            _currentLookAtWeight = 0f;
         }
         
         /// <summary>
@@ -260,5 +265,30 @@ namespace Dead_Earth.Scripts.AI
             return AIStateType.Pursuit;
         }
         
+        /// <summary>
+        /// Override IK Goals
+        /// </summary>
+        public override void OnAnimatorIKUpdated()
+        {
+            if (_zombieStateMachine == null)
+            {
+                return;
+            }
+
+            if (Vector3.Angle(_zombieStateMachine.transform.forward, 
+                              _zombieStateMachine.TargetPosition - _zombieStateMachine.transform.position) < _lookAtAngleThreshold)
+            {
+                _zombieStateMachine.Animator.SetLookAtPosition(_zombieStateMachine.TargetPosition + Vector3.up);
+                _currentLookAtWeight = Mathf.Lerp(_currentLookAtWeight, _lookAtWeight, Time.deltaTime);
+                _zombieStateMachine.Animator.SetLookAtWeight(_currentLookAtWeight);
+            }
+            else
+            {
+                _currentLookAtWeight = Mathf.Lerp(_currentLookAtWeight, 0f, Time.deltaTime);
+                _zombieStateMachine.Animator.SetLookAtWeight(_currentLookAtWeight);
+            }
+        }
+        
     }
+    
 }

@@ -96,6 +96,8 @@ namespace Dead_Earth.Scripts.AI
                 _animator.SetInteger(SeekingHash, _seeking);
                 _animator.SetInteger(AttackHash, _attackType);
             }
+
+            _satisfaction = Mathf.Max(0, _satisfaction - (_depletionRate * Time.deltaTime / 100f) * Mathf.Pow(_speed, 3f));
         }
         
     }

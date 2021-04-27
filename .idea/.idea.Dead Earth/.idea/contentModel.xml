@@ -19,11 +19,13 @@
               <e p="AIWaypointNetwork.cs" t="Include" />
               <e p="AIZombieState.cs" t="Include" />
               <e p="AIZombieState_Alerted1.cs" t="Include" />
+              <e p="AIZombieState_Attack1.cs" t="Include" />
               <e p="AIZombieState_Feeding1.cs" t="Include" />
               <e p="AIZombieState_Idle1.cs" t="Include" />
               <e p="AIZombieState_Patrol1.cs" t="Include" />
               <e p="AIZombieState_Pursuit1.cs" t="Include" />
               <e p="AIZombieStateMachine.cs" t="Include" />
+              <e p="MeleeZoneTrigger.cs" t="Include" />
               <e p="State Machine Behaviours" t="Include">
                 <e p="AIStateMachineLink.cs" t="Include" />
                 <e p="RootMotionConfigurator.cs" t="Include" />
