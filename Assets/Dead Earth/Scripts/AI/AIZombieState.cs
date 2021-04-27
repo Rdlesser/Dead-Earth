@@ -79,16 +79,18 @@ namespace Dead_Earth.Scripts.AI
                     // If the currently stored threat is not a player or if this player is closer than a player
                     // previously stored as the visual threat...this could be more important
                     if (currentType != AITargetType.Visual_Player ||
-                        currentType == AITargetType.Visual_Player && distance < _zombieStateMachine.VisualThreat.Distance)
+                        currentType == AITargetType.Visual_Player &&
+                        distance < _zombieStateMachine.VisualThreat.Distance)
                     {
+                        RaycastHit hitInfo;
                         // Is the collider within our view cone and do we have line of sight
-                        if (ColliderIsVisible(other, out var hitInfo, _playerLayerMask))
+                        if (ColliderIsVisible(other, out hitInfo, _playerLayerMask))
                         {
                             // Yep...it's close and in our FOV and we have line of sight
                             // so store as the current most dangerous threat
                             _zombieStateMachine.VisualThreat.Set(AITargetType.Visual_Player,
                                                             other,
-                                                            transform.position,
+                                                            other.transform.position,
                                                             distance);
                         }
                     }
